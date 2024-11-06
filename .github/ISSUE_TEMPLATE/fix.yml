@@ -1,6 +1,6 @@
 name: '🔨Fix'
 description: 'Bug Fix 또는 Code edit 작업 시 입력해주세요.'
-labels: '🔨Fix'
+labels: [🔨Fix]
 title: '🔨[Fix] : '
 body:
   - type: input
