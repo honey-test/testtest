@@ -1,0 +1,42 @@
+name: '♻️Refactor'
+description: 'Refactor 작업 시 입력해주세요.'
+labels: '♻️ Refactor'
+title: '♻️ [Refactor] : '
+body:
+  - type: input
+    id: parentKey
+    attributes:
+      label: '상위 작업 Ticket Number'
+      description: '상위 작업의 Ticket Number를 기입해주세요'
+      placeholder: 'DIAR-00'
+    validations:
+      required: true
+
+  - type: input
+    id: description
+    attributes:
+      label: '수정 내용(Description)'
+      description: '수정 사항에 대해서 간략히 설명해주세요'
+    validations:
+      required: true
+
+  - type: textarea
+    id: tasks
+    attributes:
+      label: '체크리스트(Tasks)'
+      description: '해당 이슈에 대해 필요한 작업목록을 작성해주세요'
+      value: |
+        - [ ] Task1
+        - [ ] Task2
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: '참조(References)'
+      description: '해당 이슈과 관련된 레퍼런스를 참조해주세요'
+      value: |
+        - Reference1
+    validations:
+      required: false
