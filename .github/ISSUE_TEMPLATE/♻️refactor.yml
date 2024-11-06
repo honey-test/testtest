@@ -1,6 +1,6 @@
 name: '♻️Refactor'
 description: 'Refactor 작업 시 입력해주세요.'
-labels: '♻️ Refactor'
+labels: [♻️ Refactor]
 title: '♻️ [Refactor] : '
 body:
   - type: input
