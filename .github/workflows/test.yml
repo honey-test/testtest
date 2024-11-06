@@ -47,7 +47,7 @@ jobs:
         uses: atlassian/gajira-create@v3
         with:
           project: TINU
-          issuetype: CLIENT
+          issuetype: SERVER
           summary: "${{ github.event.issue.title }}"
           description: "${{ steps.md2jira.outputs.output-text }}"
 
