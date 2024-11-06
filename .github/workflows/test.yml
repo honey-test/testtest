@@ -52,7 +52,7 @@ jobs:
           description: "${{ steps.md2jira.outputs.output-text }}"
           fields: |
             {
-              "parent": "TINU-51"
+              "Parent": "TINU-51"
             }
 
       - name: Log created issue
