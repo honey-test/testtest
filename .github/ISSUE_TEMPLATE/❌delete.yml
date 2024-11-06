@@ -1,6 +1,6 @@
 name: '❌Delete'
 description: 'Delete 작업 시 입력해주세요.'
-labels: ':fire: Delete'
+labels: '🔥 Delete'
 title: '❌[Delete] : '
 body:
   - type: input
