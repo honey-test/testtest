@@ -1,6 +1,6 @@
 name: '⭐Feature'
 description: 'Feature 작업 시 입력해주세요.'
-labels: '⭐ [Feature]'
+labels: [⭐ Feature]
 title: '⭐ [Feature] : '
 body:
   - type: input
