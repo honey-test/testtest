@@ -29,6 +29,7 @@ jobs:
       - name: Log Issue Parser
         run: |
           echo '${{ steps.issue-parser.outputs.jsonString }}'
+          echo "Branch Name : ${{ steps.issue-parser.outputs.jsonString.issueparser_branch }}"
 
       - name: Convert markdown to Jira Syntax
         uses: peter-evans/jira2md@v1
@@ -60,7 +61,7 @@ jobs:
 
       - name: Create branch with Ticket number
         run: |
-          BRANCH_NAME="${{ steps.create.outputs.issue }}/${{ steps.issue-parser.outputs.jsonString.branch }}"
+          BRANCH_NAME="${{ steps.create.outputs.issue }}/${{ steps.issue-parser.outputs.jsonString.issueparser_branch }}"
           git checkout -b $BRANCH_NAME
           git push origin $BRANCH_NAME
 
