@@ -4,11 +4,11 @@ labels: [🔥 Delete]
 title: '❌[Delete] : '
 body:
   - type: input
-    id: parentKey
+    id: branch
     attributes:
-      label: '상위 작업 Ticket Number'
-      description: '상위 작업의 Ticket Number를 기입해주세요'
-      placeholder: 'TINU-00'
+      label: '브랜치 이름 (Branch Name)'
+      description: '생성할 브랜치 이름을 작성해주세요.'
+      placeholder: 'chat-implement'
     validations:
       required: true
 
