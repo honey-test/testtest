@@ -42,15 +42,6 @@ jobs:
             ${{ github.event.issue.body }}
           mode: md2jira
 
-      - name: Create Issue
-        id: create
-        uses: atlassian/gajira-create@v3
-        with:
-          project: TINU
-          issuetype: SERVER
-          summary: "${{ github.event.issue.title }}"
-          description: "${{ steps.md2jira.outputs.output-text }}"
-          fields: '{"parent": { "key": "TINU-51" }, "Start Date": "2024-11-07", "duedate": "2024-11-08"}'
 
 
       - name: Custom API Call to Jira
@@ -66,6 +57,16 @@ jobs:
             }
           }' \
           ${{ secrets.JIRA_BASE_URL }}/rest/api/2/issue
+          
+      - name: Create Issue
+        id: create
+        uses: atlassian/gajira-create@v3
+        with:
+          project: TINU
+          issuetype: SERVER
+          summary: "${{ github.event.issue.title }}"
+          description: "${{ steps.md2jira.outputs.output-text }}"
+          fields: '{"parent": { "key": "TINU-51" }, "Start Date": "2024-11-07", "duedate": "2024-11-08"}'
 
       - name: Log created issue
         run: echo "Jira Issue ${{ steps.issue-parser.outputs.parentKey }}/${{ steps.create.outputs.issue }} was created"
