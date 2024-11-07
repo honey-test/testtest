@@ -42,21 +42,12 @@ jobs:
             ${{ github.event.issue.body }}
           mode: md2jira
 
-
-
-      - name: Custom API Call to Jira
+      - name: List Jira Fields
         run: |
-          curl -X POST -H "Content-Type: application/json" \
-          -u ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} \
-          --data '{
-            "fields": {
-              "project": { "key": "TINU" },
-              "summary": "Custom API Test",
-              "issuetype": { "name": "Task" },
-              "description": "This is a test created by custom API call"
-            }
-          }' \
-          ${{ secrets.JIRA_BASE_URL }}/rest/api/2/issue
+          curl -u ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} \
+          -X GET \
+          -H "Content-Type: application/json" \
+          "${{ secrets.JIRA_BASE_URL }}/rest/api/2/field"
           
       - name: Create Issue
         id: create
