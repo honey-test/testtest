@@ -30,6 +30,8 @@ jobs:
         run: |
           echo '${{ steps.issue-parser.outputs.jsonString }}'
           echo "Branch Name : ${{ steps.issue-parser.outputs.issueparser_branch }}"
+          echo "Start date : ${{ steps.issue-parser.outputs.issueparser_start_date }}"
+          echo "Due date : ${{ steps.issue-parser.outputs.issueparser_due_date }}"
 
       - name: Convert markdown to Jira Syntax
         uses: peter-evans/jira2md@v1
@@ -50,7 +52,7 @@ jobs:
           issuetype: SERVER
           summary: "${{ github.event.issue.title }}"
           description: "${{ steps.md2jira.outputs.output-text }}"
-          fields: '{"parent": { "key": "TINU-51" }, "customfield_10015": "2024-11-07", "duedate": "2024-11-08"}'
+          fields: '{"parent": { "key": "TINU-51" }, "customfield_10015": "${{ steps.issue-parser.outputs.issueparser_start_date }}", "duedate": "${{ steps.issue-parser.outputs.issueparser_due_date }}"}'
 
       - name: Log created issue
         run: echo "Jira Issue ${{ steps.issue-parser.outputs.parentKey }}/${{ steps.create.outputs.issue }} was created"
