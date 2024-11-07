@@ -52,6 +52,21 @@ jobs:
           description: "${{ steps.md2jira.outputs.output-text }}"
           fields: '{"parent": { "key": "TINU-51" }, "Start Date": "2024-11-07", "duedate": "2024-11-08"}'
 
+
+      - name: Custom API Call to Jira
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+          -u ${{ secrets.JIRA_USER_EMAIL }}:${{ secrets.JIRA_API_TOKEN }} \
+          --data '{
+            "fields": {
+              "project": { "key": "TINU" },
+              "summary": "Custom API Test",
+              "issuetype": { "name": "Task" },
+              "description": "This is a test created by custom API call"
+            }
+          }' \
+          ${{ secrets.JIRA_BASE_URL }}/rest/api/2/issue
+
       - name: Log created issue
         run: echo "Jira Issue ${{ steps.issue-parser.outputs.parentKey }}/${{ steps.create.outputs.issue }} was created"
 
