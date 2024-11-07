@@ -50,7 +50,7 @@ jobs:
           issuetype: SERVER
           summary: "${{ github.event.issue.title }}"
           description: "${{ steps.md2jira.outputs.output-text }}"
-          fields: '{"parent": { "key": "TINU-51" }, "startDate": "2024-11-07", "duedate": "2024-11-08"}'
+          fields: '{"parent": { "key": "TINU-51" }, "startdate": "2024-11-07", "duedate": "2024-11-08"}'
 
       - name: Log created issue
         run: echo "Jira Issue ${{ steps.issue-parser.outputs.parentKey }}/${{ steps.create.outputs.issue }} was created"
